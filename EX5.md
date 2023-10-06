@@ -42,4 +42,6 @@ SQL> CREATE OR REPLACE TRIGGER log_salary_update
 
 ```
 ### Output:
-![Uploading 3.png…]()
+
+![3](https://github.com/LINGARAJA-L/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/129825857/ec64c144-4cda-458a-bbd6-e675ddfc382f)
+
