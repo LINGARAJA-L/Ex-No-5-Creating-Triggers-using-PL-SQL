@@ -13,56 +13,32 @@
 8. Display the employee table, salary_log table.
 
 ### Program:
-```
-Developed by:Kavinesh M
-Register no:212222230064
-```
-```
-CREATE TABLE employed(
-  empid NUMBER,
-  empname VARCHAR2(10),
-  dept VARCHAR2(10),
-  salary NUMBER
-);
 
-CREATE TABLE sal_log (
-  log_id NUMBER GENERATED ALWAYS AS IDENTITY,
-  empid NUMBER,
-  empname VARCHAR2(10),
-  old_salary NUMBER,
-  new_salary NUMBER,
-  update_date DATE
-);
-```
 ### Create employee table
-![image](https://github.com/BharathCSEIOT/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/122793480/f3e744fb-7606-46cb-8a75-89f67070a0f1)
+![1](https://github.com/LINGARAJA-L/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/129825857/c9673129-32da-456c-b6b8-e96a37885564)
+
 
 ### Create salary_log table
-![image](https://github.com/BharathCSEIOT/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/122793480/e784d2f0-1b29-40c0-ac08-854fec0c3c3d)
+![2](https://github.com/LINGARAJA-L/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/129825857/2ae061d6-9989-4b86-9d28-ef48bbc1ab9c)
 
 ### PLSQL Trigger code
 ```
-->Create the trigger
-Create the trigger
-CREATE OR REPLACE TRIGGER log_sal_update
-BEFORE UPDATE ON employed
-FOR EACH ROW
-BEGIN
-  IF :OLD.salary != :NEW.salary THEN
-    INSERT INTO sal_log (empid, empname, old_salary, new_salary, update_date)
-    VALUES (:OLD.empid, :OLD.empname, :OLD.salary, :NEW.salary, SYSDATE);
-  END IF;
-END;
-/
-->Update the salary of an employee
-UPDATE employed
-SET salary = 60000
-WHERE empid = 1;
-->Display the employee table
-SELECT * FROM employed;
-
-->Display the salary_log table
-SELECT * FROM sal_log;
+ set serveroutput on
+SQL> CREATE OR REPLACE TRIGGER log_salary_update
+     BEFORE UPDATE ON emp
+     FOR EACH ROW
+     DECLARE
+     old_salary NUMBER;
+     new_salary NUMBER;
+     begin
+     old_salary := :OLD.salary;
+     new_salary := :NEW.salary;
+     IF v_old_salary <> v_new_salary THEN
+     INSERT INTO sal_log(empid, empname, old_salary, new_salary, update_date)
+     VALUES(:OLD.empid, :OLD.empname, old_salary, new_salary, SYSDATE);
+     END IF;
+     END;
+     /
 
 ```
 ### Output:
