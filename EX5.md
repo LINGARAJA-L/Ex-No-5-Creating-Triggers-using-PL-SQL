@@ -1,5 +1,5 @@
 # Ex. No: 5 Creating Triggers using PL/SQL
-
+## Date:1.9.23
 ### AIM: To create a Trigger using PL/SQL.
 
 ### Steps:
@@ -45,3 +45,5 @@ SQL> CREATE OR REPLACE TRIGGER log_salary_update
 
 ![3](https://github.com/LINGARAJA-L/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/129825857/ec64c144-4cda-458a-bbd6-e675ddfc382f)
 
+## RESULT:
+Therefore,Creating Triggers Using PL/SQL Executed successfully
